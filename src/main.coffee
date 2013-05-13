@@ -1,9 +1,9 @@
 path = require('path')
 Options = require path.join(path.dirname(__filename), 'options')
-Loader = require path.join(path.dirname(__filename), 'loader')
+ActionLoader = require path.join(path.dirname(__filename), 'action_loader')
 
 class Main
-  constructor: (loader = new Loader) ->
+  constructor: (loader = new ActionLoader) ->
     @loader = loader
 
   main: (argv) ->
