@@ -5,6 +5,7 @@
   }
 , "devDependencies":
   { "mocha": "1.8.2"
+  , "expect.js": "0.2.0"
   }
 , "repository":
   { "type": "git"
