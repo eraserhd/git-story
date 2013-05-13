@@ -1,11 +1,12 @@
 
 class Options
 
-  constructor: (action) ->
+  constructor: (path, action) ->
+    @path = path
     @action = action
 
   @parse: (argv) ->
-    new @ argv[1]
+    new @ argv[0], argv[1]
 
 
 module.exports = Options

@@ -4,5 +4,9 @@ assert = require 'assert'
 describe Options, ->
 
   describe '#parse', ->
-    it 'can identify the action', ->
+
+    it 'locates the action', ->
       assert.equal('start', Options.parse(['/foo/bar/git-story', 'start', 'whatevs']).action)
+
+    it 'locates the git-story path', ->
+      assert.equal('/foo/bar/git-story', Options.parse(['/foo/bar/git-story', 'stop']).path)
