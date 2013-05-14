@@ -5,4 +5,4 @@ var fs = require('fs');
 var lib = path.join(path.dirname(fs.realpathSync(__filename)), '../lib');
 var Main = require(lib + '/main')
 
-new Main().main(process.argv);
+new Main().main(process.argv.slice(1));
