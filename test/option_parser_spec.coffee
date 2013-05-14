@@ -12,7 +12,7 @@ describe OptionParser, ->
 
       fakeConfigReader =
         readConfig: (callback) =>
-          callback(null, @fakeConfig)
+          callback @fakeConfig
 
       @parser = new OptionParser fakeConfigReader
       @argv = ['/foo/bar/git-story', 'start', 'whatevs', 'bar']

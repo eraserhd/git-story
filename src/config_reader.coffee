@@ -3,13 +3,13 @@ class ConfigReader
   constructor: (fs = require 'fs') ->
     @fs = fs
 
-  readConfig: (callback) ->
+  readConfig: (continueWith) ->
     @fs.readFile @_configFile(), (error, contents) ->
       if error
-        callback error, null
+        continueWith {}
       else
-        config = JSON.parse(contents.toString())
-        callback null, config
+        config = JSON.parse contents.toString()
+        continueWith config
 
   _configFile: ->
     process.env.HOME + '/.git-story'
