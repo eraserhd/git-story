@@ -14,8 +14,9 @@ class FakeLoader
     FakeAction
 
 class FakeOptionParser
-  parse: (argv) ->
-    action: 'start'
+  parse: (argv, callback) ->
+    callback null,
+      action: 'start'
 
 describe Main, ->
 

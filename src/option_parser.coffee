@@ -6,9 +6,10 @@ class OptionParser
   constructor: (configReader) ->
     @configReader = configReader
 
-  parse: (argv) ->
+  parse: (argv, callback) ->
     config = @configReader.readConfig()
-    new Options argv[0], argv[1], argv.slice(2), config
+    options = new Options argv[0], argv[1], argv.slice(2), config
+    callback null, options
 
 
 module.exports = OptionParser
