@@ -18,7 +18,7 @@ class FakeOptionParser
     callback null,
       action: 'start'
 
-describe Main, ->
+describe 'Main', ->
 
   beforeEach ->
     @loader = new FakeLoader

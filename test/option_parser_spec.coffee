@@ -1,7 +1,7 @@
 OptionParser = require '../lib/option_parser'
 expect = require 'expect.js'
 
-describe OptionParser, ->
+describe 'OptionParser', ->
 
   describe '#parse', ->
 

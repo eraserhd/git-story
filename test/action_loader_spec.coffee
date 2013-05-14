@@ -1,7 +1,7 @@
 ActionLoader = require '../lib/action_loader'
 expect = require 'expect.js'
 
-describe ActionLoader, ->
+describe 'ActionLoader', ->
 
   beforeEach ->
     @required = []
