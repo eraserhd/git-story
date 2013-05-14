@@ -11,8 +11,8 @@ describe OptionParser, ->
         bar: "hello, world!"
 
       fakeConfigReader =
-        readConfig: =>
-          @fakeConfig
+        readConfig: (callback) =>
+          callback(null, @fakeConfig)
 
       @parser = new OptionParser fakeConfigReader
       @argv = ['/foo/bar/git-story', 'start', 'whatevs', 'bar']
