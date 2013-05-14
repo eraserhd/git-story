@@ -1,11 +1,11 @@
 
-src_COFFEE		= $(wildcard src/*.coffee)
-lib_JS			= $(addprefix lib/,$(addsuffix .js,$(basename $(notdir $(src_COFFEE)))))
+src_COFFEE		= $(shell find src -name '*.coffee')
+lib_JS			= $(patsubst src/%.coffee,lib/%.js,$(src_COFFEE))
 
 all: $(lib_JS)
 
 lib/%.js: src/%.coffee
-	./node_modules/.bin/coffee --compile --output lib $^
+	./node_modules/.bin/coffee --compile --output $(dir $@) $^
 
 setup:
 	npm install
