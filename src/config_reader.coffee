@@ -1,10 +1,17 @@
 class ConfigReader
 
-  constructor: (fs) ->
+  constructor: (fs = require 'fs') ->
     @fs = fs
 
   readConfig: (callback) ->
-    callback null, null
+    @fs.readFile @_configFile(), (error, contents) ->
+      if error
+        callback error, null
+      else
+        config = JSON.parse(contents.toString())
+        callback null, config
 
+  _configFile: ->
+    '!'
 
 module.exports = ConfigReader
