@@ -1,12 +1,13 @@
-Options = require '../lib/options'
+OptionParser = require '../lib/option_parser'
 expect = require 'expect.js'
 
-describe Options, ->
+describe OptionParser, ->
 
-  describe 'Options.parse', ->
+  describe '#parse', ->
 
     beforeEach ->
-      @options = Options.parse ['/foo/bar/git-story', 'start', 'whatevs', 'bar']
+      @parser = new OptionParser
+      @options = @parser.parse ['/foo/bar/git-story', 'start', 'whatevs', 'bar']
 
     it 'locates the action', ->
       expect(@options.action).to.be 'start'
