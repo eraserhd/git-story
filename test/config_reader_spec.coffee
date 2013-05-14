@@ -4,9 +4,11 @@ expect = require 'expect.js'
 describe ConfigReader, ->
 
   beforeEach ->
+    @filenameRead = null
     @readFileResult = "{}"
     fs =
       readFile: (filename, callback) =>
+        @filenameRead = filename
         callback null, @readFileResult
     @reader = new ConfigReader fs
 
@@ -15,6 +17,11 @@ describe ConfigReader, ->
 
   it 'calls us back', (done) ->
     @reader.readConfig (error, config) ->
+      done()
+
+  it 'reads ~/.git-story', (done) ->
+    @reader.readConfig (config) =>
+      expect(@filenameRead).to.be process.env.HOME + '/.git-story'
       done()
 
   it 'parses and gives us back the config', (done) ->

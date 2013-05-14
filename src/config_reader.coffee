@@ -12,6 +12,6 @@ class ConfigReader
         callback null, config
 
   _configFile: ->
-    '!'
+    process.env.HOME + '/.git-story'
 
 module.exports = ConfigReader
