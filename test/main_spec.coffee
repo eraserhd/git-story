@@ -13,11 +13,16 @@ class FakeLoader
     @command_loaded = command
     FakeAction
 
+class FakeOptionParser
+  parse: (argv) ->
+    action: 'start'
+
 describe Main, ->
 
   beforeEach ->
-    @loader = new FakeLoader()
-    @main = new Main(@loader)
+    @loader = new FakeLoader
+    @parser = new FakeOptionParser
+    @main = new Main @loader, @parser
 
   it 'loads the action', ->
     @main.main(['/foo/bar/git-story', 'start', 'foo'])
