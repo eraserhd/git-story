@@ -4,15 +4,23 @@ expect = require 'expect.js'
 describe 'StartAction', ->
 
   beforeEach ->
-    @storyFetcherError = null
-    @storyFetcherResult = {}
+    @story =
+      name: "Herp the derp frobber"
     @storyFetcherUrl = null
     @storyFetcher =
       fetch: (url, continueWith) =>
         @storyFetcherUrl = url
-        continueWith @storyFetcherError, @storyFetcherResult
+        continueWith null, @story
 
-    @start = new StartAction @storyFetcher
+    @branchNameMakerReceivedOptions = null
+    @branchNameMakerReceivedStory = null
+    @branchNameMaker =
+      branchNameForStory: (options, story) =>
+        @branchNameMakerReceivedOptions = options
+        @branchNameMakerReceivedStory = story
+        null
+
+    @start = new StartAction @storyFetcher, @branchNameMaker
     @options =
       parameters: ['http://foo.com/bar/baz/1172']
 
@@ -23,4 +31,12 @@ describe 'StartAction', ->
   it 'fetches the story information', (done) ->
     @start.run @options, =>
       expect(@storyFetcherUrl).to.be 'http://foo.com/bar/baz/1172'
+      done()
+
+  it 'figures out the branch name from the story name', (done) ->
+    @story =
+      name: 'Branch test'
+    @start.run @options, =>
+      expect(@branchNameMakerReceivedOptions).to.be.eql @options
+      expect(@branchNameMakerReceivedStory).to.be.eql @story
       done()
