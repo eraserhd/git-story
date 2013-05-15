@@ -1,7 +1,7 @@
-StartAction = require '../../lib/actions/start'
+StoryStarter = require '../../lib/actions/start'
 expect = require 'expect.js'
 
-describe 'StartAction', ->
+describe 'StoryStarter', ->
 
   beforeEach ->
     @story =
@@ -20,7 +20,7 @@ describe 'StartAction', ->
         @branchNameMakerReceivedStory = story
         null
 
-    @start = new StartAction @storyFetcher, @branchNameMaker
+    @start = new StoryStarter @storyFetcher, @branchNameMaker
     @options =
       parameters: ['http://foo.com/bar/baz/1172']
 

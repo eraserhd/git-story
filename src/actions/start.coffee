@@ -1,5 +1,4 @@
-
-class StartAction
+class StoryStarter
 
   constructor: (storyFetcher, branchNameMaker) ->
     @storyFetcher = storyFetcher
@@ -10,4 +9,4 @@ class StartAction
       branchName = @branchNameMaker.branchNameForStory options, story
       continueWith()
 
-module.exports = StartAction
+module.exports = StoryStarter
