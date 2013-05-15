@@ -11,6 +11,6 @@ class Main
     @parser.parse argv, (error, options) =>
       action_class = @loader.load options.action
       action_instance = new action_class
-      action_instance.run(options)
+      action_instance.run options, ->
 
 module.exports = Main
