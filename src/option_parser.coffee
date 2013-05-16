@@ -9,7 +9,7 @@ class OptionParser
 
   parse: (argv, callback) ->
     @configReader.readConfig (config) ->
-      options = new Options argv[0], argv[1], argv.slice(2), config
+      options = new Options argv[1], argv.slice(2), config
       callback null, options
 
 

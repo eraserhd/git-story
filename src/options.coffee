@@ -1,7 +1,6 @@
 class Options
 
-  constructor: (path, action, parameters, config) ->
-    @path = path
+  constructor: (action, parameters, config) ->
     @action = action
     @parameters = parameters
     @config = config

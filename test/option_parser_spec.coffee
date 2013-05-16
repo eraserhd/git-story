@@ -23,12 +23,6 @@ describe 'OptionParser', ->
         expect(options.action).to.be 'start'
         done()
 
-    it 'locates the git-story path', (done) ->
-      @parser.parse @argv, (error, options) =>
-        throw error if error
-        expect(options.path).to.be '/foo/bar/git-story'
-        done()
-
     it 'locates the remaining arguments', (done) ->
       @parser.parse @argv, (error, options) =>
         throw error if error
