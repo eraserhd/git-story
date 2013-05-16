@@ -1,4 +1,3 @@
-
 class Options
 
   constructor: (path, action, parameters, config) ->

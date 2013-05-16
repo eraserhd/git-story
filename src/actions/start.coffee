@@ -4,9 +4,13 @@ class StoryStarter
     @storyFetcher = storyFetcher
     @branchNameMaker = branchNameMaker
 
-  run: (options, continueWith) ->
-    @storyFetcher.fetch options.parameters[0], (error, story) =>
+  run: (options, andThen) ->
+    storyUrl = options.parameters[0]
+    @storyFetcher.fetch storyUrl, @_thenNameBranch(options, andThen)
+
+  _thenNameBranch: (options, andThen) ->
+    (error, story) =>
       branchName = @branchNameMaker.branchNameForStory options, story
-      continueWith()
+      andThen()
 
 module.exports = StoryStarter

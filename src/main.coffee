@@ -7,8 +7,8 @@ class Main
     @loader = loader
     @parser = parser
 
-  main: (argv) ->
-    @parser.parse argv, (error, options) =>
+  main: (args) ->
+    @parser.parse args, (error, options) =>
       action_class = @loader.load options.action
       action_instance = new action_class
       action_instance.run options, ->
