@@ -1,4 +1,4 @@
-Main = require '../lib/main'
+Main = require '../lib/git-story/main'
 expect = require 'expect.js'
 
 class FakeAction

@@ -1,4 +1,4 @@
-StoryDiffer = require '../../lib/actions/diff'
+StoryDiffer = require '../../lib/git-story/actions/diff'
 expect = require 'expect.js'
 events = require 'events'
 

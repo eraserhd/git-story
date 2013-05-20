@@ -1,4 +1,4 @@
-OptionParser = require '../lib/option_parser'
+OptionParser = require '../lib/git-story/option_parser'
 expect = require 'expect.js'
 
 describe 'OptionParser', ->

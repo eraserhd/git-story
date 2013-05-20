@@ -1,5 +1,13 @@
 { "name": "git-story"
 , "version": "0.0.1"
+, "author": "Jason Felice <jason.m.felice@gmail.com>"
+, "description": "a 'story' subcommand for git for developing tickets on branches"
+, "bin":
+  { "git-story": "./bin/git-story"
+  }
+, "scripts":
+  { "test": "make test"
+  }
 , "dependencies":
   { "coffee-script": "~1.4.0"
   }
@@ -10,6 +18,9 @@
 , "repository":
   { "type": "git"
   , "url": "git+ssh://git@github.groupondev.com/eraserhd/git-story.git"
+  }
+, "directories":
+  { "lib" : "./lib/git-story"
   }
 , "optionalDependencies": {}
 , "engines": { "node": ">=0.8" }

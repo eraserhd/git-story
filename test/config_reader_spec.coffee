@@ -1,4 +1,4 @@
-ConfigReader = require '../lib/config_reader'
+ConfigReader = require '../lib/git-story/config_reader'
 expect = require 'expect.js'
 
 describe 'ConfigReader', ->

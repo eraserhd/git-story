@@ -1,4 +1,4 @@
-StoryStarter = require '../../lib/actions/start'
+StoryStarter = require '../../lib/git-story/actions/start'
 expect = require 'expect.js'
 
 describe 'StoryStarter', ->

@@ -1,4 +1,4 @@
-ActionLoader = require '../lib/action_loader'
+ActionLoader = require '../lib/git-story/action_loader'
 expect = require 'expect.js'
 
 describe 'ActionLoader', ->
