@@ -9,7 +9,8 @@ class StoryDiffer
       @console.log "git-story: don't know what to do with '#{options.parameters[0]}'"
       andThen()
     else
-      process = @child_process.spawn 'git', ['diff', 'origin/master...HEAD']
+      process = @child_process.spawn 'git', ['diff', 'origin/master...HEAD'],
+        stdio: 'inherit'
       process.on 'exit', =>
         andThen()
 
