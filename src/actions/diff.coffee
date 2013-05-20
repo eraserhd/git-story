@@ -4,7 +4,8 @@ class StoryDiffer
     @console = console
 
   run: (options, andThen) ->
-    @console.log "Don't know what to do with '#{options.parameters[0]}'"
+    if options.parameters.length > 0
+      @console.log "git-story: don't know what to do with '#{options.parameters[0]}'"
     andThen()
 
 
