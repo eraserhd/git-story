@@ -1,5 +1,6 @@
 StoryDiffer = require '../../lib/actions/diff'
 expect = require 'expect.js'
+events = require 'events'
 
 describe 'StoryDiffer', ->
 
@@ -14,6 +15,14 @@ describe 'StoryDiffer', ->
 
     @child_process =
       spawn: (command, args, options) =>
+        @spawnCommand = command
+        @spawnArgs = args
+        @process = new events.EventEmitter
+        @process.on 'newListener', =>
+          process.nextTick =>
+            @process.emit 'exit', 0, null
+
+        @process
 
     @diff = new StoryDiffer @console, @child_process
 
@@ -26,4 +35,6 @@ describe 'StoryDiffer', ->
   it 'runs \'git diff origin/master...HEAD\'', (done) ->
     @diff.run @options, =>
       expect(@consoleMessages).to.be ''
+      expect(@spawnCommand).to.be 'git'
+      expect(@spawnArgs).to.be.eql ['diff', 'origin/master...HEAD']
       done()
