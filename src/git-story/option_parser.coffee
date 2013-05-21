@@ -4,8 +4,7 @@ Options = require path.join(path.dirname(__filename), 'options')
 
 class OptionParser
 
-  constructor: (configReader = new ConfigReader) ->
-    @configReader = configReader
+  constructor: (@configReader = new ConfigReader) ->
 
   parse: (argv, callback) ->
     @configReader.readConfig (config) ->

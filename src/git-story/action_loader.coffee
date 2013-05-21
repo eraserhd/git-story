@@ -1,8 +1,7 @@
 path = require 'path'
 
 class ActionLoader
-  constructor: (requirer = require) ->
-    @requirer = requirer
+  constructor: (@requirer = require) ->
 
   load: (action_name) ->
     @requirer @_path(action_name)

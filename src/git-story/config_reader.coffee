@@ -1,7 +1,6 @@
 class ConfigReader
 
-  constructor: (fs = require 'fs') ->
-    @fs = fs
+  constructor: (@fs = require 'fs') ->
 
   readConfig: (continueWith) ->
     @fs.readFile @_configFile(), (error, contents) ->

@@ -1,8 +1,5 @@
 class Options
 
-  constructor: (action, parameters, config) ->
-    @action = action
-    @parameters = parameters
-    @config = config
+  constructor: (@action, @parameters, @config) ->
 
 module.exports = Options

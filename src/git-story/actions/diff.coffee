@@ -1,8 +1,7 @@
 class StoryDiffer
 
-  constructor: (my_console = console, child_process = require 'child_process') ->
+  constructor: (my_console = console, @child_process = require 'child_process') ->
     @console = my_console
-    @child_process = child_process
 
   run: (options, andThen) ->
     if options.parameters.length > 0

@@ -1,8 +1,6 @@
 class StoryStarter
 
-  constructor: (storyFetcher, branchNameMaker) ->
-    @storyFetcher = storyFetcher
-    @branchNameMaker = branchNameMaker
+  constructor: (@storyFetcher, @branchNameMaker) ->
 
   run: (options, andThen) ->
     storyUrl = options.parameters[0]

@@ -3,9 +3,7 @@ ActionLoader = require path.join(path.dirname(__filename), 'action_loader')
 OptionParser = require path.join(path.dirname(__filename), 'option_parser')
 
 class Main
-  constructor: (loader = new ActionLoader, parser = new OptionParser) ->
-    @loader = loader
-    @parser = parser
+  constructor: (@loader = new ActionLoader, @parser = new OptionParser) ->
 
   main: (args) ->
     @parser.parse args, (error, options) =>
