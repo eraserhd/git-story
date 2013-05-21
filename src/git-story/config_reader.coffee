@@ -4,11 +4,9 @@ class ConfigReader
 
   readConfig: (continueWith) ->
     @fs.readFile @_configFile(), (error, contents) ->
-      if error
-        continueWith {}
-      else
-        config = JSON.parse contents.toString()
-        continueWith config
+      return continueWith {} if error
+      config = JSON.parse contents.toString()
+      continueWith config
 
   _configFile: ->
     process.env.HOME + '/.git-story'
